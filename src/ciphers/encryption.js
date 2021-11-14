@@ -20,7 +20,9 @@ const encryption = (argv) => {
   }
 
   if (parseFlags.output) {
-    wridable = fs.createWriteStream(parseFlags.output);
+    wridable = fs.createWriteStream(parseFlags.output, {
+      flags: 'a',
+    });
   } else {
     wridable = process.stdout;
   }
