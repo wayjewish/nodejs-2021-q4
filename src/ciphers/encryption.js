@@ -3,6 +3,7 @@ const fs = require('fs');
 const parsingFlags = require('./parsingFlags');
 const parsingConfig = require('./parsingConfig');
 const errorHandler = require('../errors/errorHandler');
+const { CustomReadStream, CustomWriteStream } = require('../asssets/customStreams');
 
 const chiper = require('./chiper');
 
@@ -14,15 +15,13 @@ const encryption = (argv) => {
   let wridable = null;
 
   if (parseFlags.input) {
-    readable = fs.createReadStream(parseFlags.input);
+    readable = new CustomReadStream(parseFlags.input);
   } else {
     readable = process.stdin;
   }
 
   if (parseFlags.output) {
-    wridable = fs.createWriteStream(parseFlags.output, {
-      flags: 'a',
-    });
+    wridable = new CustomWriteStream(parseFlags.output);
   } else {
     wridable = process.stdout;
   }
@@ -60,7 +59,7 @@ const encryption = (argv) => {
     ...transformStreams,
     wridable,
     err => {
-      if (err) errorHandler(err);
+      if (err) throw err;
     }
   );
 };
