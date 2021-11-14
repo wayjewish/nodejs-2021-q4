@@ -5,12 +5,12 @@ const validFile = (path) => {
   try {
     fs.accessSync(path, fs.constants.F_OK);
   } catch (err) {
-    throw new CustomError(`Нет файла ${path}`);
+    throw new CustomError(`There is no file ${path}`);
   }
   try {
     fs.accessSync(path, fs.constants.W_OK);
   } catch (err) {
-    throw new CustomError(`Нет доступа к записи в файл ${path}`);
+    throw new CustomError(`There is no write access to the file ${path}`);
   }
 };
 

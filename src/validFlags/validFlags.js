@@ -8,7 +8,7 @@ const validFile = require('./validFile');
 const validFlags = (argv) => {
   const parseFlags = parsingFlags(argv);
 
-  if (!parseFlags.config) throw new CustomError('Отсутсвует конфиг');
+  if (!parseFlags.config) throw new CustomError('The config is missing');
   Object.keys(parseFlags).forEach(key => {
     const value = parseFlags[key];
     if (key === 'config') {

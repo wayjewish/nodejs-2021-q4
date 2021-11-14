@@ -8,8 +8,8 @@ const parsingFlags = (argv) => {
     Object.keys(flags).forEach(key => {
       const flag = flags[key];
       if (flag.includes(argvFlag)) {
-        if (result[key]) throw new CustomError(`Дубль флага ${key}`);
-        if (!argv[argvIndex + 1]) throw new CustomError('Пустое значение для флага');
+        if (result[key]) throw new CustomError(`Flag double ${key}`);
+        if (!argv[argvIndex + 1]) throw new CustomError(`Empty value for the flag ${key}`);
         result[key] = argv[argvIndex + 1];
       }
     });
