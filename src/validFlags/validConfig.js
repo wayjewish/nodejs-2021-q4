@@ -3,7 +3,6 @@ const CustomError = require('../errors/customError');
 
 const checkValidChars = (str, arrValidChars) => {
   const arr = str.split('');
-  console.log(arrValidChars, arr);
   arr.forEach(char => {
     if (!arrValidChars.includes(char)) {
       throw new CustomError('Не валидный конфиг1');
