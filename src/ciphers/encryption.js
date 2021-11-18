@@ -59,7 +59,10 @@ const encryption = (argv) => {
     ...transformStreams,
     wridable,
     err => {
-      if (err) throw err;
+      if (err) {
+        process.stderr.write(err);
+        process.exit(1);
+      }
     }
   );
 };

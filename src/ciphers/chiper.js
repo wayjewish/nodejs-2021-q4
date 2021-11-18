@@ -16,7 +16,7 @@ const chiper = (shift, mode, mirrored = false) => {
         let alphabet = null;
         Object.keys(arrCharsAlphabet).forEach(key => {
           const arrChars = arrCharsAlphabet[key];
-          if (arrChars.includes(char)) alphabet = arrChars;
+          if (arrChars.includes(char)) alphabet = [...arrChars];
         });
 
         if (alphabet) {
