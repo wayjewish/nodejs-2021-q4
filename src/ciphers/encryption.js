@@ -1,33 +1,26 @@
 const { pipeline } = require('stream');
-const fs = require('fs');
-const parsingFlags = require('./parsingFlags');
-const parsingConfig = require('./parsingConfig');
-const errorHandler = require('../errors/errorHandler');
 const { CustomReadStream, CustomWriteStream } = require('../asssets/customStreams');
 
 const chiper = require('./chiper');
 
-const encryption = (argv) => {
-  const parseFlags = parsingFlags(argv);
-  const parseConfig = parsingConfig(parseFlags.config);
-  
+const encryption = (argv) => {  
   let readable = null;
   let wridable = null;
 
-  if (parseFlags.input) {
-    readable = new CustomReadStream(parseFlags.input);
+  if (argv.input) {
+    readable = new CustomReadStream(argv.input);
   } else {
     readable = process.stdin;
   }
 
-  if (parseFlags.output) {
-    wridable = new CustomWriteStream(parseFlags.output);
+  if (argv.output) {
+    wridable = new CustomWriteStream(argv.output);
   } else {
     wridable = process.stdout;
   }
 
   const transformStreams = [];
-  parseConfig.forEach(operation => {
+  argv.config.forEach(operation => {
     const settings = {
       shift: null, 
       mode: null, 
