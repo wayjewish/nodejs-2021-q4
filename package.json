@@ -1,0 +1,23 @@
+{
+  "name": "testing",
+  "version": "1.0.0",
+  "description": "CLI tool accept 3 options (short alias and full name):",
+  "main": "ciphering-cli-tool.js",
+  "scripts": {
+    "test": "jest",
+    "test:coverage": "jest --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wayjewish/nodejs-2021-q4.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wayjewish/nodejs-2021-q4/issues"
+  },
+  "homepage": "https://github.com/wayjewish/nodejs-2021-q4#readme",
+  "devDependencies": {
+    "jest": "^27.3.1"
+  }
+}
