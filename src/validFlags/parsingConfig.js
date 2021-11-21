@@ -20,7 +20,7 @@ const saveOperation = (step) => {
   return operation;
 }
 
-const validConfig = (config) => {
+const parsingConfig = (config) => {
   const result = [];
 
   checkValidChars(config, [...configChars.ciphers, ...configChars.mode, configChars.separator]);
@@ -48,4 +48,4 @@ const validConfig = (config) => {
   return result;
 };
 
-module.exports = validConfig;
+module.exports = parsingConfig;
