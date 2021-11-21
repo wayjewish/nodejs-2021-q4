@@ -12,11 +12,12 @@ const DATA = {
         },
     },
     parsingConfig: {
-        input: 'C1-C1-R0-A',
+        input: 'C0-C1-R0-R1-A',
         output: [
-            { chiper: 'C', encoding: true },
+            { chiper: 'C', decoding: true },
             { chiper: 'C', encoding: true },
             { chiper: 'R', decoding: true },
+            { chiper: 'R', encoding: true },
             { chiper: 'A' }
         ],
     },
